@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<properties>
+  <parsers>
+    <parser class="org.apache.tika.parser.ocr.TesseractOCRParser">
+      <params>
+        <param name="timeout" type="int">300</param>
+        <param name="language" type="string">eng+spa+fra+deu+ita+nld</param>
+      </params>
+    </parser>
+  </parsers>
+</properties>
