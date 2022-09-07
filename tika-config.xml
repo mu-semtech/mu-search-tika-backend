@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <properties>
+  <server>
+    <params>
+      <taskTimeoutMillis>600000</taskTimeoutMillis>
+      <forkedJvmArgs>
+        <arg>-Xms1g</arg>
+        <arg>-Xmx1g</arg>
+       </forkedJvmArgs>
+    </params>
+  </server>
   <parsers>
     <parser class="org.apache.tika.parser.DefaultParser">
     </parser>
     <parser class="org.apache.tika.parser.ocr.TesseractOCRParser">
       <params>
-        <param name="taskTimeoutMillis" type="int">600000</param>
+        <param name="timeoutSeconds" type="int">600</param>
         <param name="language" type="string">eng+spa+fra+deu+ita+nld</param>
       </params>
     </parser>
