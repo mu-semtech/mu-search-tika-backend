@@ -3,7 +3,7 @@
   <parsers>
     <parser class="org.apache.tika.parser.ocr.TesseractOCRParser">
       <params>
-        <param name="timeout" type="int">300</param>
+        <param name="taskTimeoutMillis" type="int">600000</param>
         <param name="language" type="string">eng+spa+fra+deu+ita+nld</param>
       </params>
     </parser>
