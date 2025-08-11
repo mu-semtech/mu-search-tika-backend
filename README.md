@@ -12,6 +12,7 @@ As of v2 Tika has out-of-the-box support for performing automatic OCR on PDF doc
 - German
 - Italian
 - Spanish
+- Japanese
 
 This image additionally adds support for:
 - Dutch
