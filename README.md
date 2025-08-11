@@ -1,8 +1,12 @@
-# docker-tika
-Tika Docker image with added OCR support for the Dutch language
+# mu-search-tika-backend
+This is the Tika backend for [mu-search](https://github.com/mu-semtech/mu-search/).  It is to be used in conjunction with that microservice.  Please see the README of mu-search in order to use this component.
 
-Starting from version 2.0.0, Tika adds out-of-the-box support for performing automatic OCR on PDF documents. The [official Tika Docker images](https://github.com/apache/tika-docker) provide support for:
+This image is based on Tika and includes the components which
+are commonly expected to be available for mu-search.
 
+** Reference
+*** OCR support
+As of v2 Tika has out-of-the-box support for performing automatic OCR on PDF documents. The [official Tika Docker images](https://github.com/apache/tika-docker) provides support for:
 - English
 - French
 - German
@@ -10,12 +14,4 @@ Starting from version 2.0.0, Tika adds out-of-the-box support for performing aut
 - Spanish
 
 This image additionally adds support for:
-
 - Dutch
-
-# Adding to Docker compose
-
-``` yaml
-tika:
-  image: redpencil/tika:2.4.0
-```
