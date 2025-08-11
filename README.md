@@ -4,8 +4,51 @@ This is the Tika backend for [mu-search](https://github.com/mu-semtech/mu-search
 This image is based on Tika and includes the components which
 are commonly expected to be available for mu-search.
 
-** Reference
-*** OCR support
+## Tutorials
+### Add Tika to your stack
+Add the Tika service to `docker-compose.yml`
+
+``` yaml
+services:
+  tika:
+    image: semtech/mu-search-tika-backend
+```
+
+Restart the stack using `docker compose up -d`. The `tika` service will be created.
+
+## How-to guides
+### How to customize the Tika config
+The default configuration can be overwritten by mounting a config folder containing `tika-config.xml` in `/config`
+
+``` yaml
+services:
+  tika:
+    image: semtech/mu-search-tika-backend
+    volumes:
+    - ./config/tika:/config
+```
+
+(Re)create the service using `docker compose up -d tika`.
+
+The default config for this image can be found in [tika-config.xml](./tika-config.xml). You probably want to use this file as a starting point for your custom config.
+
+All config options are documented in the [official Tika documentation](https://tika.apache.org/3.2.2/configuring.html).
+
+### How to disable the OCR parser
+To disable the OCR parser, mount a custom config `tika-config.xml` containing the following content
+
+``` xml
+<properties>
+  <parsers>
+    <parser class="org.apache.tika.parser.DefaultParser">
+      <parser-exclude class="org.apache.tika.parser.ocr.TesseractOCRParser"/>
+    </parser>
+  </parsers>
+</properties>
+```
+
+## Reference
+### OCR support
 As of v2 Tika has out-of-the-box support for performing automatic OCR on PDF documents. The [official Tika Docker images](https://github.com/apache/tika-docker) provides support for:
 - English
 - French
