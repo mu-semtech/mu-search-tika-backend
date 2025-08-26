@@ -34,6 +34,22 @@ The default config for this image can be found in [tika-config.xml](./tika-confi
 
 All config options are documented in the [official Tika documentation](https://tika.apache.org/3.2.2/configuring.html).
 
+### How to increase the Java heap space
+To increase the Java heap space, mount a custom config `tika-config.xml` and config the server's `forkedJvmArgs`
+
+``` xml
+<properties>
+  <server>
+    <params>
+      <forkedJvmArgs>
+        <arg>-Xms4g</arg>
+        <arg>-Xmx4g</arg>
+       </forkedJvmArgs>
+    </params>
+  </server>
+</properties>
+```
+
 ### How to disable the OCR parser
 To disable the OCR parser, mount a custom config `tika-config.xml` containing the following content
 
