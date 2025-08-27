@@ -11,7 +11,7 @@ Add the Tika service to `docker-compose.yml`
 ``` yaml
 services:
   tika:
-    image: semtech/mu-search-tika-backend
+    image: semtech/mu-search-tika-backend:1.0.0
 ```
 
 Restart the stack using `docker compose up -d`. The `tika` service will be created.
@@ -29,7 +29,7 @@ Mount the generated config folder in `/config`
 ``` yaml
 services:
   tika:
-    image: semtech/mu-search-tika-backend
+    image: semtech/mu-search-tika-backend:1.0.0
     volumes:
     - ./config/tika:/config
 ```
