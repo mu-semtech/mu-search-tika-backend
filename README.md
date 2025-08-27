@@ -18,7 +18,13 @@ Restart the stack using `docker compose up -d`. The `tika` service will be creat
 
 ## How-to guides
 ### How to customize the Tika config
-The default configuration can be overwritten by mounting a config folder containing `tika-config.xml` in `/config`
+Generate a default Tika config
+
+``` bash
+mu script tika generate-config
+```
+
+Mount the generated config folder in `/config`
 
 ``` yaml
 services:
@@ -29,10 +35,6 @@ services:
 ```
 
 (Re)create the service using `docker compose up -d tika`.
-
-The default config for this image can be found in [tika-config.xml](./tika-config.xml). You probably want to use this file as a starting point for your custom config.
-
-All config options are documented in the [official Tika documentation](https://tika.apache.org/3.2.2/configuring.html).
 
 ### How to increase the Java heap space
 To increase the Java heap space, mount a custom config `tika-config.xml` and config the server's `forkedJvmArgs`
@@ -64,6 +66,11 @@ To disable the OCR parser, mount a custom config `tika-config.xml` containing th
 ```
 
 ## Reference
+### Tika configuration
+Overwrite the default Tika config by mounting a folder containing `tika-config.xml` in `/config` as explained in 'How to customize the Tika config'.
+
+All config options are documented in the [official Tika documentation](https://tika.apache.org/3.2.2/configuring.html).
+
 ### OCR support
 As of v2 Tika has out-of-the-box support for performing automatic OCR on PDF documents. The [official Tika Docker images](https://github.com/apache/tika-docker) provides support for:
 - English
