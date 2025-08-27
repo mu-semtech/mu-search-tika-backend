@@ -1,0 +1,18 @@
+{
+  "version": "0.2",
+  "scripts": [
+    {
+      "documentation": {
+        "command": "generate-config",
+        "description": "Generates and mounts a default Tika config in your project",
+        "arguments": []
+      },
+      "environment": {
+        "script": "generate-config/run.sh"
+      },
+      "mounts": {
+        "app": "/data/app/"
+      }
+    }
+  ]
+}
